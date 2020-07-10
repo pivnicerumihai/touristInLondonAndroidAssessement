@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "373435091760",
+    "firebase_url": "https://tourism-77146.firebaseio.com",
+    "project_id": "tourism-77146",
+    "storage_bucket": "tourism-77146.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373435091760:android:e002c64c3423d3378496f5",
+        "android_client_info": {
+          "package_name": "com.example.londontourism"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "373435091760-8nunv81qvp2hjl2ubkcp3nhcgk30rk02.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.londontourism",
+            "certificate_hash": "aae506bd415cfa37e2a3cce77545500de39e8c93"
+          }
+        },
+        {
+          "client_id": "373435091760-gcg47oambjnfu5tb9i55g97pmocvg0om.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJb2EhoYX1rrq5s3Nm4D65XDmYhGAIKBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "373435091760-gcg47oambjnfu5tb9i55g97pmocvg0om.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
