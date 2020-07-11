@@ -1,34 +1,69 @@
 package com.example.londontourism;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.solver.widgets.Snapshot;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.londontourism.Model.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
-    Button signout;
-    String user;
+
+    TextView name;
+    private Query user_ref;
+    Users loged_user;
+    TextView activity_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        signout = findViewById(R.id.signout);
-        user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent i = new Intent(HomeActivity.this, MainActivity.class);
-                startActivity(i);
-            }
-        });
+        activity_name = findViewById(R.id.activity_name);
+        name = findViewById(R.id.toolbar_name);
+        user_ref =FirebaseDatabase.getInstance().getReference("_user_").orderByChild("email_address").equalTo(user.getEmail());
+        user_ref.addListenerForSingleValueEvent(listener);
+        activity_name.setText("London Activities");
+
     }
+
+    public void onStart(){
+        super.onStart();
+
+    }
+    ValueEventListener listener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+            for(DataSnapshot dss : snapshot.getChildren()){
+                loged_user = dss.getValue(Users.class);
+                Log.i("LOGED USER:", loged_user.getFirst_name().toString());
+            }
+            name.setText(loged_user.getFirst_name() + " " + loged_user.getLast_name());
+
+//
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+
+        }
+    };
+
 
 }

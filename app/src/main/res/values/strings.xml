@@ -11,4 +11,9 @@
     <string name="login">Sign In</string>
     <string name="login_register">Need an account? Click here to register!</string>
     <string name="login_anonymously">Login Anonymously</string>
+    <string name="choose">Choose from one of the London Activities below: </string>
+    <string name="museums">Museums</string>
+    <string name="parks">Parks and Nature</string>
+    <string name="attractions">Attractions</string>
+    <string name="other_activities">Other Activities</string>
 </resources>
