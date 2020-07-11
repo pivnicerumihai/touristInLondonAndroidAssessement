@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +25,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
-    Button register;
+    EditText email,password;
+    Button register, log_in;
     LinearLayout login_anonymously;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         register = findViewById(R.id.login_register);
         login_anonymously = findViewById(R.id.login_anonymously);
         auth = FirebaseAuth.getInstance();
+        log_in = findViewById(R.id.login_btn);
+        email = findViewById(R.id.login_email);
+        password = findViewById(R.id.login_password);
 
         //Display Custom Toolbar
         Toolbar toolbar = findViewById(R.id.login_toolbar);
@@ -65,6 +71,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Login Button Listener
+        log_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful()){
+                                    FirebaseUser user = auth.getCurrentUser();
+                                    Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                                    startActivity(i);
+                                }
+                                else{
+                                    Toast.makeText(MainActivity.this, "Authentication failed!" , Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+        });
 
         };
 
@@ -72,7 +98,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart(){
         super.onStart();
-        FirebaseUser currentUser = auth.getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null){
+            Intent i = new Intent(this, HomeActivity.class);
+            startActivity(i);
+        }
     }
 
     }

@@ -76,7 +76,9 @@ public class Register extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                saveUserToDB(first_name.getText().toString(),last_name.getText().toString(),email.getText().toString());
+                                //Save user in DB with the same userID in authentication
+                                String user_id = task.getResult().getUser().getUid();
+                                saveUserToDB(first_name.getText().toString(),last_name.getText().toString(),email.getText().toString(),user_id);
                                 Toast.makeText(Register.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
                             }
                             else{
@@ -90,9 +92,9 @@ public class Register extends AppCompatActivity {
         });
 
     }
-    private void saveUserToDB(String first_name, String last_name, String e_mail){
+    private void saveUserToDB(String first_name, String last_name, String e_mail, String user_id){
         Users user = new Users(first_name,last_name,e_mail);
-        dbref.child(dbref.push().getKey()).setValue(user);
+        dbref.child(user_id).setValue(user);
     }
 
 }
