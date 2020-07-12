@@ -6,21 +6,6 @@
     android:background="@color/colorPrimaryDark"
     android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
     >
-    <TextView
-        android:id="@+id/activity_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="16dp"
-        android:textSize="18dp"
-        />
-    <TextView
-        android:id="@+id/toolbar_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:textStyle="bold"
-        android:paddingRight="16dp"
-        android:textSize="14dp"
-        />
+
 
 </androidx.appcompat.widget.Toolbar>

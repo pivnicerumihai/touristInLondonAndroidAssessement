@@ -1,8 +1,13 @@
 package com.example.londontourism;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.solver.widgets.Snapshot;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,25 +29,38 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
-
-    TextView name;
+    private DrawerLayout drawer;
     private Query user_ref;
     Users loged_user;
-    TextView activity_name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        activity_name = findViewById(R.id.activity_name);
-        name = findViewById(R.id.toolbar_name);
+
         user_ref =FirebaseDatabase.getInstance().getReference("_user_").orderByChild("email_address").equalTo(user.getEmail());
         user_ref.addListenerForSingleValueEvent(listener);
-        activity_name.setText("London Activities");
 
+        Toolbar toolbar = findViewById(R.id.home_toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
     }
 
+    @Override
+    public void onBackPressed(){
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else{
+        super.onBackPressed();
+    }}
     public void onStart(){
         super.onStart();
 
@@ -52,11 +70,8 @@ public class HomeActivity extends AppCompatActivity {
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             for(DataSnapshot dss : snapshot.getChildren()){
                 loged_user = dss.getValue(Users.class);
-                Log.i("LOGED USER:", loged_user.getFirst_name().toString());
-            }
-            name.setText(loged_user.getFirst_name() + " " + loged_user.getLast_name());
 
-//
+            }
         }
 
         @Override
@@ -64,6 +79,7 @@ public class HomeActivity extends AppCompatActivity {
 
         }
     };
+
 
 
 }

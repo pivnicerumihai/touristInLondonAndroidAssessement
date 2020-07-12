@@ -2,6 +2,7 @@ package com.example.londontourism;
 
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         //Display Custom Toolbar
         Toolbar toolbar = findViewById(R.id.login_toolbar);
         setSupportActionBar(toolbar);
+
 
         //Login Anonymously onClickListener
         login_anonymously.setOnClickListener(new View.OnClickListener() {
