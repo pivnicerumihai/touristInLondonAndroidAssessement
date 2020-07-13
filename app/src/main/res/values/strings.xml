@@ -16,6 +16,12 @@
     <string name="parks">Parks and Nature</string>
     <string name="attractions">Attractions</string>
     <string name="other_activities">Other Activities</string>
+    <string name="anonymous">Loged In Anonymously</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="email_address">Email Address </string>
+    <string name="Password">Password</string>
+    <string name="apply_changes">Apply Changes</string>
+    <string name="change_picture">Change Profile Picture</string>
     <string-array name="settings">
         <item>Categories</item>
         <item>Account Details</item>

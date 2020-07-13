@@ -17,7 +17,7 @@
         android:paddingTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test"
+        android:text="@string/anonymous"
         android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
@@ -25,6 +25,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/loged_user_email"
-        android:text="test@test.com"
         android:textColor="@color/black"/>
 </LinearLayout>

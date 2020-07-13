@@ -35,29 +35,39 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private Query user_ref;
     Users loged_user;
-
+    TextView loged_user_name;
+    TextView loged_user_email;
+    View headerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-
+        drawer = findViewById(R.id.drawer_layout);
         user_ref =FirebaseDatabase.getInstance().getReference("_user_").orderByChild("email_address").equalTo(user.getEmail());
         user_ref.addListenerForSingleValueEvent(listener);
 
+        //Display Custom Toolbar;
         Toolbar toolbar = findViewById(R.id.home_toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
-
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //get IDs for username and emails from nav_header
+        headerView = navigationView.getHeaderView(0);
+        loged_user_name = headerView.findViewById(R.id.loged_user_name);
+        loged_user_email = headerView.findViewById(R.id.loged_user_email);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,  new CategoryFragment()).commit();
+
+        //if loged with credentials,set email and name to Views;
+
     }
 
     @Override
@@ -66,10 +76,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_categories:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,  new CategoryFragment()).commit();
                 break;
+            case R.id.nav_account_settings:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AccountSettingsFragment()).commit();
+                break;
             case R.id.nav_log_out:
                 FirebaseAuth.getInstance().signOut();
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -91,9 +105,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-            for(DataSnapshot dss : snapshot.getChildren()){
+            for(DataSnapshot dss : snapshot.getChildren()) {
                 loged_user = dss.getValue(Users.class);
+                if (!(getIntent().hasExtra("anonymous"))) {
 
+
+                    loged_user_name.setText(loged_user.getFirst_name().toString());
+                    loged_user_email.setText(loged_user.getEmail_address());
+                }
             }
         }
 

@@ -5,10 +5,87 @@
     android:layout_height="match_parent"
     tools:context=".AccountSettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+        <include layout="@layout/custom_toolbar"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher_round"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/profile_picture"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_picture"
+                />
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_address"
+
+                    android:padding="5dp"/>
+                <EditText
+                    android:id="@+id/change_email"
+                    android:padding="5dp"
+                    android:layout_width="250dp"
+                    android:inputType="textEmailAddress"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Password"
+                    android:padding="5dp"/>
+                <EditText
+                    android:id="@+id/change_password"
+                    android:padding="5dp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:text="@string/Password"
+
+                    />
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/apply_changes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apply_changes"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </FrameLayout>

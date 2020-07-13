@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(MainActivity.this,"Loged in!",Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                            i.putExtra("Anonymous" ,"true");
                             startActivity(i);
                         }
                         else{
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
                                     FirebaseUser user = auth.getCurrentUser();
+
                                     Intent i = new Intent(MainActivity.this, HomeActivity.class);
                                     startActivity(i);
                                 }
