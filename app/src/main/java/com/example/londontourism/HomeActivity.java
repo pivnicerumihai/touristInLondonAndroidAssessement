@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.londontourism.Model.Users;
 import com.google.android.material.navigation.NavigationView;
@@ -77,7 +78,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,  new CategoryFragment()).commit();
                 break;
             case R.id.nav_account_settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AccountSettingsFragment()).commit();
+                if(!(getIntent().hasExtra("Anonymous"))) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AccountSettingsFragment()).commit();
+                }
+                else{
+                    Toast.makeText(this, "You must be loged in with email and password in order to access Account Settings", Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.nav_log_out:
                 FirebaseAuth.getInstance().signOut();
@@ -107,10 +113,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             for(DataSnapshot dss : snapshot.getChildren()) {
                 loged_user = dss.getValue(Users.class);
-                if (!(getIntent().hasExtra("anonymous"))) {
+                if (!(getIntent().hasExtra("Anonymous"))) {
 
 
-                    loged_user_name.setText(loged_user.getFirst_name().toString());
+                    loged_user_name.setText(loged_user.getFirst_name());
                     loged_user_email.setText(loged_user.getEmail_address());
                 }
             }

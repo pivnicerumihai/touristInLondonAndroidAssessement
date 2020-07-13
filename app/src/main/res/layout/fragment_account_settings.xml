@@ -36,38 +36,51 @@
                 android:padding="10dp"
                 android:text="@string/change_picture"
                 />
-            <LinearLayout
+            <TextView
                 android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/email_address"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp"/>
+            <LinearLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/email_address"
 
-                    android:padding="5dp"/>
                 <EditText
+                    android:gravity="center_horizontal"
                     android:id="@+id/change_email"
                     android:padding="5dp"
                     android:layout_width="250dp"
                     android:inputType="textEmailAddress"
                     android:layout_height="wrap_content"
                     />
-
+                <ImageButton
+                    android:id="@+id/btn_change_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_done"
+                    android:padding="3dp"
+                    android:tint="@color/white"
+                    android:background="@color/colorAccent"
+                    />
             </LinearLayout>
-
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Password"
+                android:padding="5dp"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal">
-                <TextView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Password"
-                    android:padding="5dp"/>
                 <EditText
+                    android:gravity="center_horizontal"
                     android:id="@+id/change_password"
                     android:padding="5dp"
                     android:layout_width="250dp"
@@ -77,6 +90,15 @@
 
                     />
 
+                <ImageButton
+                    android:id="@+id/btn_change_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_done"
+                    android:tint="@color/white"
+                    android:background="@color/colorAccent"
+                    android:padding="3dp"
+                    />
             </LinearLayout>
             <Button
                 android:id="@+id/apply_changes"
