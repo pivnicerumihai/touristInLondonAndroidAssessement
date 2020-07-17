@@ -8,97 +8,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-   <FrameLayout
-       android:layout_width="wrap_content"
-       android:layout_height="0dp"
-       android:layout_weight="2.5">
-       <ImageView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:src="@drawable/museums"
-           android:scaleType="centerCrop"/>
-       <TextView
-           android:textColor="@color/white"
-           android:textSize="34dp"
-           android:textStyle="bold"
-           android:shadowDx="2"
-           android:shadowDy="5"
-           android:shadowRadius="4"
-           android:shadowColor="@color/black"
-           android:layout_gravity="center_horizontal|center_vertical"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="@string/museums"/>
-
-   </FrameLayout>
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="2.5">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/attractions"/>
-        <TextView
-            android:textColor="@color/white"
-            android:textSize="34dp"
-            android:textStyle="bold"
-            android:shadowDx="2"
-            android:shadowDy="5"
-            android:shadowColor="@color/black"
-            android:shadowRadius="4"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/attractions"/>
-
-    </FrameLayout>
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="2.5">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/parks"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="34dp"
-            android:textStyle="bold"
-            android:shadowColor="@color/black"
-            android:shadowDx="2"
-            android:shadowDy="5"
-            android:shadowRadius="4"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:text="@string/parks"/>
-
-    </FrameLayout>
-    <FrameLayout
+    <Button
+        android:id="@+id/btn_category_attraction"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.5">
+        android:layout_weight="2.5"
+        android:background="@drawable/attractions"
+        android:scaleType="centerCrop"
+        android:padding="0dp"
+        android:text="@string/attractions"
+        android:textSize="34sp"
+        android:textColor="@color/white"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="4"
+        android:shadowColor="@color/black"
 
-        <ImageView
-            android:scaleType="centerCrop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/other"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="34dp"
-            android:shadowColor="@color/black"
-            android:textStyle="bold"
-            android:shadowDx="2"
-            android:shadowDy="5"
-            android:shadowRadius="4"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:text="@string/other_activities"/>
-    </FrameLayout>
+        />
+    <Button
+        android:id="@+id/btn_category_museums"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:background="@drawable/museums"
+        android:scaleType="centerCrop"
+        android:padding="0dp"
+        android:text="@string/museums"
+        android:textSize="34sp"
+        android:textColor="@color/white"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="4"
+        android:shadowColor="@color/black"
+
+        />
+    <Button
+        android:id="@+id/btn_category_parks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:background="@drawable/parks"
+        android:scaleType="centerCrop"
+        android:padding="0dp"
+        android:text="@string/parks"
+        android:textSize="34sp"
+        android:textColor="@color/white"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="4"
+        android:shadowColor="@color/black"
+
+        />
+
+    <Button
+        android:id="@+id/btn_category_other"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:background="@drawable/other"
+        android:scaleType="centerCrop"
+        android:padding="0dp"
+        android:text="@string/other_activities"
+        android:textSize="34sp"
+        android:textColor="@color/white"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="4"
+        android:shadowColor="@color/black"
+
+        />
 </LinearLayout>
 </FrameLayout>
