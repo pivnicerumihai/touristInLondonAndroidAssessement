@@ -1,6 +1,7 @@
 package com.example.londontourism;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,7 +22,7 @@ public class AttractionListActivity extends AppCompatActivity {
     DatabaseReference dbref;
     String list_to_show;
     Intent intent;
-
+    CardView cv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,9 @@ public class AttractionListActivity extends AppCompatActivity {
         intent = getIntent();
         list_to_show = intent.getStringExtra("Category");
         Toast.makeText(AttractionListActivity.this, list_to_show , Toast.LENGTH_SHORT).show();
+        cv = findViewById(R.id.attraction_cardview);
         dbref = database.getReference(list_to_show);
+
     }
 
     //load data into recycler view;
@@ -47,7 +50,7 @@ public class AttractionListActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<Attraction, AttractionViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Attraction, AttractionViewHolder>(Attraction.class,R.layout.card_view_attraction,AttractionViewHolder.class,dbref) {
             @Override
             protected void populateViewHolder(AttractionViewHolder attractionViewHolder, Attraction attraction, int i) {
-                attractionViewHolder.setDetails(getApplicationContext(),attraction.getTitle(),attraction.getDescription(),attraction.getImageURL());
+                attractionViewHolder.setDetails(getApplicationContext(),attraction.getTitle(),attraction.getDescription(),attraction.getImageURL(), list_to_show);
             }
         };
         //set adapter to recycler view;

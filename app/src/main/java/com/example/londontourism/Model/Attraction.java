@@ -1,15 +1,14 @@
 package com.example.londontourism.Model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Attraction {
 
         String Description,imageURL, title;
-
         public Attraction(){
 
         }
+
+
 
     public String getDescription() {
         return Description;

@@ -22,7 +22,11 @@
     <string name="Password">Password</string>
     <string name="apply_changes">Apply Changes</string>
     <string name="change_picture">Change Profile Picture</string>
+    <string name="reviews">Reviews</string>
+    <string name="add_review">Add Review</string>
+    <string name="reviewed_by">reviewed by</string>
     <string-array name="settings">
+
         <item>Categories</item>
         <item>Account Details</item>
         <item>Log Out</item>

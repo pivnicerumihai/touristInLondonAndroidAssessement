@@ -11,9 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".AttractionListActivity">
-
-        </activity>
+        <activity android:name=".AttractionPreview"></activity>
+        <activity android:name=".AttractionListActivity"></activity>
         <activity
             android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
