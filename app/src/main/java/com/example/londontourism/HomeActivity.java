@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.londontourism.Model.Global;
 import com.example.londontourism.Model.Users;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,6 +40,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     TextView loged_user_name;
     TextView loged_user_email;
     View headerView;
+    Global global_user_details;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +52,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer = findViewById(R.id.drawer_layout);
         user_ref =FirebaseDatabase.getInstance().getReference("_user_").orderByChild("email_address").equalTo(user.getEmail());
         user_ref.addListenerForSingleValueEvent(listener);
-
+        global_user_details = (Global) getApplicationContext();
         //Display Custom Toolbar;
         Toolbar toolbar = findViewById(R.id.home_toolbar);
         setSupportActionBar(toolbar);
@@ -115,6 +118,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 loged_user = dss.getValue(Users.class);
                 if (!(getIntent().hasExtra("Anonymous"))) {
 
+                    global_user_details.setName(loged_user.getFirst_name() + " " + loged_user.getLast_name());
+                    global_user_details.setEmail(loged_user.getEmail_address());
 
                     loged_user_name.setText(loged_user.getFirst_name());
                     loged_user_email.setText(loged_user.getEmail_address());

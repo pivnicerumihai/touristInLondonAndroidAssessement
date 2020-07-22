@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -57,5 +58,15 @@ ArrayList<Review> reviews;
         bundle.putString("Category", category);
         reviewsFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.review_fragment, reviewsFragment).commit();
+        add_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AttractionPreview.this,CreateReviewActivity.class);
+                i.putExtra("Category", category);
+                i.putExtra("Title",title);
+                i.putExtra("imageURL",imageURL);
+                startActivity(i);
+            }
+        });
     }
 }

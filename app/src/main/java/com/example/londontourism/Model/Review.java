@@ -5,12 +5,17 @@ import android.os.Parcelable;
 
 public class Review {
 
-    String review_description, stars, added_by;
-
+    String review_description, added_by;
+    Long stars;
     public Review() {
 
     }
 
+    public Review( String review_description, String added_by, Long stars){
+            this.review_description = review_description;
+            this.added_by = added_by;
+            this.stars = stars;
+    }
     public String getReview_description() {
         return review_description;
     }
@@ -19,11 +24,11 @@ public class Review {
         this.review_description = review_description;
     }
 
-    public String getStars() {
+    public Long getStars() {
         return stars;
     }
 
-    public void setStars(String stars) {
+    public void setStars(Long stars) {
         this.stars = stars;
     }
 

@@ -32,31 +32,31 @@
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_star_24"/>
+       />
     <ImageView
         android:layout_gravity="center_vertical"
         android:id="@+id/review_star2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_star_24"/>
+    />
     <ImageView
         android:layout_gravity="center_vertical"
         android:id="@+id/review_star3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_star_24"/>
+     />
     <ImageView
         android:layout_gravity="center_vertical"
         android:id="@+id/review_star4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_star_24"/>
+  />
     <ImageView
         android:layout_gravity="center_vertical"
         android:id="@+id/review_star5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_star_24"/>
+  />
     </LinearLayout>
 
 </LinearLayout>

@@ -6,7 +6,6 @@
     <string name="reg_confirm_email">Confirm E-mail Address</string>
     <string name="reg_password">Password</string>
     <string name="reg_confirm_password">Confirm Password</string>
-
     <string name="reg_button">Register</string>
     <string name="login">Sign In</string>
     <string name="login_register">Need an account? Click here to register!</string>
@@ -25,6 +24,9 @@
     <string name="reviews">Reviews</string>
     <string name="add_review">Add Review</string>
     <string name="reviewed_by">reviewed by</string>
+    <string name="create_review_stars">Stars</string>
+    <string name="write_review">Write your review</string>
+    <string name="submit">Submit</string>
     <string-array name="settings">
 
         <item>Categories</item>
