@@ -121,8 +121,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     global_user_details.setName(loged_user.getFirst_name() + " " + loged_user.getLast_name());
                     global_user_details.setEmail(loged_user.getEmail_address());
 
-                    loged_user_name.setText(loged_user.getFirst_name());
-                    loged_user_email.setText(loged_user.getEmail_address());
+                    loged_user_name.setText(global_user_details.getName());
+                    loged_user_email.setText(global_user_details.getEmail());
                 }
             }
         }

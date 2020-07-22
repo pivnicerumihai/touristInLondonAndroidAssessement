@@ -11,6 +11,9 @@
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark"
     tools:context=".AttractionPreview">
+        <include
+            android:id="@+id/preview_toolbar"
+            layout="@layout/custom_toolbar"/>
 <ImageView
     android:id="@+id/attraction_preview_img"
     android:layout_gravity="center_horizontal"

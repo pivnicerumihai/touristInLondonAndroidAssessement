@@ -2,6 +2,7 @@ package com.example.londontourism;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,7 +40,6 @@ public class CreateReviewActivity extends AppCompatActivity {
     ImageView review_img,star_1,star_2,star_3,star_4,star_5;
     TextView review_title;
     Button btn_submit;
-
     DatabaseReference dbref;
 
 
@@ -47,6 +47,19 @@ public class CreateReviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_review);
+
+        Toolbar toolbar = findViewById(R.id.create_review_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
         intent = getIntent();
         title = intent.getStringExtra("Title");
         img_url = intent.getStringExtra("imageURL");

@@ -1,6 +1,7 @@
 package com.example.londontourism;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +33,17 @@ ArrayList<Review> reviews;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attraction_preview);
+
+        Toolbar toolbar = findViewById(R.id.preview_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         attraction_img = findViewById(R.id.attraction_preview_img);
         star_1 = findViewById(R.id.attraction_preview_star1);
         star_2 = findViewById(R.id.attraction_preview_star2);

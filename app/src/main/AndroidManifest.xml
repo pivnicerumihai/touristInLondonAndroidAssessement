@@ -12,9 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".CreateReviewActivity"></activity>
-        <activity android:name=".AttractionPreview" />
-        <activity android:name=".AttractionListActivity" />
+        <activity android:name=".CreateReviewActivity"
+            android:label="Create Review"></activity>
+        <activity
+            android:label="Preview"
+            android:name=".AttractionPreview" />
+        <activity
+            android:label="London Activities"
+            android:name=".AttractionListActivity" />
         <activity
             android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -7,9 +7,15 @@
     tools:context=".AttractionListActivity"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark">
+<include
+    android:id="@+id/list_toolbar"
+    layout="@layout/custom_toolbar"
+    >
+</include>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
 </LinearLayout>
