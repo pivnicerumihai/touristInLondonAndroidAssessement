@@ -5,21 +5,23 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.example.londontourism.Model.Global"
+        android:name=".Model.Global"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".CreateReviewActivity"
-            android:label="Create Review"></activity>
+        <activity android:name=".CreateActivityActivity"></activity>
         <activity
-            android:label="Preview"
-            android:name=".AttractionPreview" />
+            android:name=".CreateReviewActivity"
+            android:label="Create Review" />
         <activity
-            android:label="London Activities"
-            android:name=".AttractionListActivity" />
+            android:name=".AttractionPreview"
+            android:label="Preview" />
+        <activity
+            android:name=".AttractionListActivity"
+            android:label="London Activities" />
         <activity
             android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -33,8 +33,14 @@
         <item>Account Details</item>
         <item>Log Out</item>
     </string-array>
+    <string name="create_activity_title">Activity Title</string>
+    <string name="create_activity_description">Activity Description</string>
     <string name="nav_drawer_open">Open Navigation Drawer</string>
     <string name="nav_drawer_close">Close Navigation Drawer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_activity_btn">Create Activity</string>
+    <string-array name="categories">
+        <item>Select Category</item>
+        <item>Parks and Nature</item>
+        <item>Other activities</item>
+    </string-array>
 </resources>

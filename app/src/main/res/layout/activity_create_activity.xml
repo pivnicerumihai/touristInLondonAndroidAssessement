@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateActivityActivity"
+    android:orientation="vertical">
+<include
+    android:id="@+id/create_activity_toolbar"
+    layout="@layout/custom_toolbar"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <com.airbnb.lottie.LottieAnimationView
+
+        android:layout_marginTop="20dp"
+        android:id="@+id/img_selection"
+        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="300dp"
+        app:lottie_rawRes="@raw/upload_image"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+        <ImageView
+            android:id="@+id/uploaded_img"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+         />
+    </FrameLayout>
+<Spinner
+    android:id="@+id/create_activity_spinner"
+    android:layout_marginTop="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:id="@+id/create_activity_title"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:textAlignment="center"
+        android:hint="@string/create_activity_title"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        />
+    <EditText
+        android:id="@+id/create_activity_description"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:hint="@string/create_activity_description"
+        />
+    <Button
+        android:id="@+id/create_activity_btn"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_activity_btn"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

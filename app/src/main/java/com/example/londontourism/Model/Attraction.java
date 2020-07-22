@@ -4,6 +4,12 @@ package com.example.londontourism.Model;
 public class Attraction {
 
         String Description,imageURL, title;
+
+        public Attraction(String Description, String imageURL, String title){
+          this.Description = Description;
+            this.imageURL = imageURL;
+           this.title = title;
+        }
         public Attraction(){
 
         }

@@ -71,6 +71,13 @@ public class AttractionListActivity extends AppCompatActivity {
             add_review_button.setBackgroundResource(R.color.colorPrimary);
 
             toolbar.addView(add_review_button);
+            add_review_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(AttractionListActivity.this, CreateActivityActivity.class);
+                    startActivity(i);
+                }
+            });
         }
     }
 
