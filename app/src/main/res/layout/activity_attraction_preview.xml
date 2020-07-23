@@ -38,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reviews"
+            android:layout_gravity="center_vertical"
             android:textSize="18sp"/>
         <ImageView
             android:layout_gravity="center_vertical"
@@ -70,7 +71,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_star_24"/>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/total_reviews"
+            android:layout_gravity="center_vertical"/>
         <Button
             android:padding="15dp"
             android:background="@color/colorPrimary"

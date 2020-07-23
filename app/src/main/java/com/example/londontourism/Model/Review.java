@@ -1,7 +1,5 @@
 package com.example.londontourism.Model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 
 public class Review {
 
@@ -10,12 +8,14 @@ public class Review {
     public Review() {
 
     }
-
     public Review( String review_description, String added_by, Long stars){
-            this.review_description = review_description;
-            this.added_by = added_by;
-            this.stars = stars;
+        this.review_description = review_description;
+        this.added_by = added_by;
+        this.stars = stars;
     }
+
+
+
     public String getReview_description() {
         return review_description;
     }

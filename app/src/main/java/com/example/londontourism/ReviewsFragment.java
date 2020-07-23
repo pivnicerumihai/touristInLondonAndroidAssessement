@@ -49,22 +49,30 @@ public class ReviewsFragment extends Fragment {
         bundle =getArguments();
         category = bundle.getString("Category");
         title = bundle.getString("Title");
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         dbref = firebaseDatabase.getReference(category).child(title).child("reviews");
-
 
         recyclerView = view.findViewById(R.id.reviews_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
-        FirebaseRecyclerAdapter<Review,ReviewViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Review, ReviewViewHolder>(Review.class,R.layout.card_view_review,ReviewViewHolder.class, dbref) {
+        final FirebaseRecyclerAdapter<Review,ReviewViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Review, ReviewViewHolder>(Review.class,R.layout.card_view_review,ReviewViewHolder.class, dbref) {
+
+
+
             @Override
             protected void populateViewHolder(ReviewViewHolder reviewViewHolder, Review review, int i) {
+
                 reviewViewHolder.setReviewDetails(getContext(),review.getReview_description(),review.getAdded_by(),review.getStars());
+
+
             }
+
         };
 
     recyclerView.setAdapter(firebaseRecyclerAdapter);
+
         return view;
     }
 }

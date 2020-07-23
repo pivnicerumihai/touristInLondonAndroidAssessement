@@ -8,10 +8,13 @@
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_width="150dp"
+        android:layout_height="68dp"
+        android:src="@drawable/logo" />
+
     <TextView
         android:id="@+id/loged_user_name"
         android:paddingTop="8dp"

@@ -22,7 +22,6 @@ public class AttractionViewHolder extends RecyclerView.ViewHolder {
     Intent i;
     public AttractionViewHolder(@NonNull View itemView) {
         super(itemView);
-
         view = itemView;
 
     }
