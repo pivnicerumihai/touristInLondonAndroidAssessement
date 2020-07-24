@@ -14,7 +14,7 @@ public class Attraction {
 
         }
 
-
+    //Getters and Setters
 
     public String getDescription() {
         return Description;

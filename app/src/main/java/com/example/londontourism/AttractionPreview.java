@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,7 +35,7 @@ public class AttractionPreview extends AppCompatActivity {
 ImageView attraction_img;
 Intent intent;
 ImageView star_1, star_2,star_3,star_4,star_5;
-Button add_review;
+Button add_review,book_tour;
 TextView attraction_description, attraction_title, total_reviews;
 String imageURL, title, description , category;
 ArrayList<Review> reviews = new ArrayList<>();
@@ -65,6 +66,7 @@ Query dbref;
         star_5 = findViewById(R.id.attraction_preview_star5);
         total_reviews = findViewById(R.id.total_reviews);
         add_review = findViewById(R.id.attraction_preview_btn_add_review);
+        book_tour = findViewById(R.id.attraction_preview_btn_book);
         attraction_description = findViewById(R.id.attraction_preview_description);
         attraction_title = findViewById(R.id.attraction_preview_title);
         intent = getIntent();
@@ -96,6 +98,14 @@ Query dbref;
             }
         });
 
+        book_tour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url_title = title.replaceAll("\\s+", "-").toLowerCase();
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.365tickets.co.uk/"+url_title + "?q=" + url_title));
+                startActivity(i);
+            }
+        });
     dbref = FirebaseDatabase.getInstance().getReference(category).child(title).child("reviews").orderByChild("stars");
     dbref.addListenerForSingleValueEvent(listener);
     }

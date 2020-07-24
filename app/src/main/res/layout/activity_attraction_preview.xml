@@ -76,15 +76,21 @@
             android:layout_height="wrap_content"
             android:id="@+id/total_reviews"
             android:layout_gravity="center_vertical"/>
-        <Button
-            android:padding="15dp"
-            android:background="@color/colorPrimary"
 
+        <Button
             android:id="@+id/attraction_preview_btn_add_review"
-            android:layout_marginLeft="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_review"/>
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/add_review" />
+        <Button
+            android:id="@+id/attraction_preview_btn_book"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/book"/>
     </LinearLayout>
     <TextView
         android:id="@+id/attraction_preview_description"

@@ -27,6 +27,7 @@
     <string name="create_review_stars">Stars</string>
     <string name="write_review">Write your review</string>
     <string name="submit">Submit</string>
+    <string name="book">Book Tour</string>
     <string-array name="settings">
 
         <item>Categories</item>
